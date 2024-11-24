@@ -11,7 +11,9 @@ def init_routes(app):
 
     @app.route('/', methods=['GET'])
     def get_items():
-        # This route should retrieve all items from the database and display them on the page.
+
+        vehicles = Vehicle.query.all()
+        
         return render_template('index.html', message='Displaying all items')
 
 
