@@ -41,9 +41,6 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Garage</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
           <!-- Button trigger modal -->
           <button
             type="button"
@@ -51,8 +48,12 @@
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            Add
+            Add Vehicle
           </button>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
 
           <li class="nav-item dropdown">
             <a
@@ -106,7 +107,59 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body">...</div>
+        <div class="modal-body">
+          <form>
+            <!--Name-->
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Name<br>e.g: Jeremy, The Whip, Betsy</label>
+              <input type="text" class="form-control" id="vehicle-name" />
+            </div>
+            <!--Quote-->
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Quote<br>e.g: "Good Vehicle, does this and that"</label>
+              <textarea class="form-control" id="vehicle-quote"></textarea>
+            </div>
+            <!--Description-->
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label"></label>Description</label>
+              <textarea class="form-control" id="vehicle-description"></textarea>
+            </div>
+            <!--Owner-->
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Owner</label>
+              <textarea class="form-control" id="vehicle-owner"></textarea>
+            </div>
+
+            <!--Type-->
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Type<br>e.g: ute, sedan, station wagon, motorbike</label>
+              <textarea class="form-control" id="vehicle-type"></textarea>
+            </div>
+            <!--Make-->
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Make<br>e.g: Mazda, Toyota, Honda, Yamaha</label>
+              <textarea class="form-control" id="vehicle-make"></textarea>
+            </div>
+            <!--Model-->
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Model<br>e.g: Jeremy, The Whip, Betsy</label>
+              <textarea class="form-control" id="vehicle-model"></textarea>
+            </div>
+            <!--Year-->
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Year<br>e.g: Jeremy, The Whip, Betsy</label>
+              <textarea class="form-control" id="vehicle-year"></textarea>
+            </div>
+            <!--Issues-->
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Previous Issues</label>
+              <textarea class="form-control" id="previous-issues"></textarea>
+              <div class="mb-3"></div>
+              <label for="message-text" class="col-form-label">Current Issues</label>
+              <textarea class="form-control" id="current-issues"></textarea>
+            </div>
+          </form>
+        </div>
         <div class="modal-footer">
           <button
             type="button"
@@ -115,22 +168,20 @@
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary">Add Vehicle</button>
         </div>
       </div>
     </div>
   </div>
-
-  <br />
 
   <!--Grid Layout-->
   <div class="container">
     <div class="row">
       {% for i in range(6) %}
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="card">
+        <div class="card mb-4">
           <img
-            src="IMG_6314.jpeg"
+            src="{{ url_for('static', filename='IMG_6314.jpeg') }}"
             class="card-img-top"
             alt="Picture of Jeremy"
           />
