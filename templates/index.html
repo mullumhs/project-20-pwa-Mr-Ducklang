@@ -108,67 +108,81 @@
           ></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/add" method="POST">
+            <!--Image-->
+            <div class="mb-3">
+              <label for="image" class="form-label">Image URL</label>
+              <textarea class="form-control" id="vehicle-img" name="Image"></textarea>
+              
+            </div>
             <!--Name-->
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label">Name<br>e.g: Jeremy, The Whip, Betsy</label>
-              <input type="text" class="form-control" id="vehicle-name" />
+              <input type="text" class="form-control" id="vehicle-name" name='Name'/>
             </div>
             <!--Quote-->
             <div class="mb-3">
-              <label for="message-text" class="col-form-label">Quote<br>e.g: "Good Vehicle, does this and that"</label>
-              <textarea class="form-control" id="vehicle-quote"></textarea>
+              <label for="message-text" class="col-form-label">Quote<br>e.g: "Good vehicle, does this and that"</label>
+              <textarea class="form-control" id="vehicle-quote" name="Quote"></textarea>
             </div>
             <!--Description-->
             <div class="mb-3">
               <label for="message-text" class="col-form-label"></label>Description</label>
-              <textarea class="form-control" id="vehicle-description"></textarea>
+              <textarea class="form-control" id="vehicle-description" name="Description"></textarea>
             </div>
+
             <!--Owner-->
             <div class="mb-3">
               <label for="message-text" class="col-form-label">Owner</label>
-              <textarea class="form-control" id="vehicle-owner"></textarea>
+              <textarea class="form-control" id="vehicle-owner" name="Owner"></textarea>
             </div>
 
             <!--Type-->
             <div class="mb-3">
-              <label for="message-text" class="col-form-label">Type<br>e.g: ute, sedan, station wagon, motorbike</label>
-              <textarea class="form-control" id="vehicle-type"></textarea>
+              <label for="message-text" class="col-form-label">Type<br>e.g: Ute, Sedan, Station Whip, Motorbike</label>
+              <textarea class="form-control" id="vehicle-type" name="Type"></textarea>
             </div>
             <!--Make-->
             <div class="mb-3">
               <label for="message-text" class="col-form-label">Make<br>e.g: Mazda, Toyota, Honda, Yamaha</label>
-              <textarea class="form-control" id="vehicle-make"></textarea>
+              <textarea class="form-control" id="vehicle-make" name="Make"></textarea>
             </div>
             <!--Model-->
             <div class="mb-3">
               <label for="message-text" class="col-form-label">Model<br>e.g: Jeremy, The Whip, Betsy</label>
-              <textarea class="form-control" id="vehicle-model"></textarea>
+              <textarea class="form-control" id="vehicle-model" name="Model"></textarea>
             </div>
             <!--Year-->
             <div class="mb-3">
-              <label for="message-text" class="col-form-label">Year<br>e.g: Jeremy, The Whip, Betsy</label>
-              <textarea class="form-control" id="vehicle-year"></textarea>
+              <label for="message-text" class="col-form-label">Year<br>e.g: 2001, 2011</label>
+              <textarea class="form-control" id="vehicle-year" name="Year"></textarea>
+            </div>
+            <!--Features-->
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label"></label>Description</label>
+              <textarea class="form-control" id="vehicle-description" name="Features"></textarea>
             </div>
             <!--Issues-->
             <div class="mb-3">
               <label for="message-text" class="col-form-label">Previous Issues</label>
-              <textarea class="form-control" id="previous-issues"></textarea>
-              <div class="mb-3"></div>
-              <label for="message-text" class="col-form-label">Current Issues</label>
-              <textarea class="form-control" id="current-issues"></textarea>
+              <textarea class="form-control" id="previous-issues" name="PreviousIssues"></textarea>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button
+            <div class="mb-3"></div>
+              <label for="message-text" class="col-form-label">Current Issues</label>
+              <textarea class="form-control" id="current-issues" name="CurrentIssues"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Vehicle</button>
+            <button
             type="button"
             class="btn btn-secondary"
             data-bs-dismiss="modal"
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary">Add Vehicle</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          
         </div>
       </div>
     </div>

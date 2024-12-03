@@ -16,8 +16,26 @@ def init_routes(app):
 
 
     @app.route('/add', methods=['POST'])
+     # This route should handle adding a new item to the database.
     def create_item():
-        # This route should handle adding a new item to the database.
+        newvehicle = Vehicle(
+            image = request.form.get("Image"),
+            name = request.form.get("Name"),
+            quote = request.form.get("Quote"),
+            description = request.form.get("Description"),
+            owner = request.form.get("Owner"),
+            type = request.form.get("Type"),
+            make = request.form.get("Make"),
+            model = request.form.get("Model"),
+            year = request.form.get("Year"),
+            features = request.form.get("Features"),
+            currentissues = request.form.get("CurrentIssues"),
+            previousissues = request.form.get("PreviousIssues")
+            )
+        
+        db.session.add(newvehicle)
+        db.session.commit()
+       
         return render_template('index.html', message='Item added successfully')
 
 
