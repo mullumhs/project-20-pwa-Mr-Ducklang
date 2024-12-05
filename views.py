@@ -10,8 +10,9 @@ from models import db, Vehicle # Also import your database model here
 def init_routes(app):
 
     @app.route('/', methods=['GET'])
-    def get_items():
-        return render_template('index.html', message='Displaying all items')
+    def index():
+        vehicles = Vehicle.query.all()
+        return render_template('index.html', vehicles=vehicles)
 
 
 
@@ -36,7 +37,7 @@ def init_routes(app):
         db.session.add(newvehicle)
         db.session.commit()
        
-        return render_template('index.html', message='Item added successfully')
+        return redirect(url_for('index'))
 
 
 
