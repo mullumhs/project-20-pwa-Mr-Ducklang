@@ -39,7 +39,11 @@ def init_routes(app):
        
         return redirect(url_for('index'))
 
-
+    @app.route('/view_vehicle', methods=['GET'])
+    def view_vehicle():
+        id = request.args.get('id')
+        vehicle = Vehicle.query.get(id)
+        return render_template('view_vehicle.html', vehicle = vehicle)
 
     @app.route('/update', methods=['POST'])
     def update_item():
