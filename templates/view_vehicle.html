@@ -1,4 +1,25 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}{% block content %}
 
-<h1>{{vehicle.name}} Details</h1>
-<img {{vehicle.img}} /> {%endblock%}
+<img
+  src="{{vehicle.image}}"
+  class="img-fluid rounded img-thumbnail"
+  style="width: 800px"
+  alt="Picture of {{vehicle.name}}"
+/>
+<h1><br />{{vehicle.name}} Details</h1>
+<p>"{{vehicle.quote}}"</p>
+<br />
+<p>{{vehicle.description}}</p>
+<br />
+<p>Owner: {{vehicle.owner}}</p>
+<p>Vehicle Type: {{vehicle.type}}</p>
+<p>Make: {{vehicle.make}}</p>
+<p>Model: {{vehicle.model}}</p>
+<p>Year: {{vehicle.year}}</p>
+<p>Features: {{vehicle.features}}</p>
+<br />
+<p>
+  Issues: <br />Current: {{vehicle.currentissues}} <br />
+  Previous: {{vehicle.previousissues}}
+</p>
+{%endblock%}

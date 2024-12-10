@@ -7,7 +7,7 @@
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
   >
-  <!-- Button Trigger Modal -->
+  <!-- Modal -->
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -21,7 +21,6 @@
             aria-label="Close"
           ></button>
         </div>
-        <!--Modal-->
         <div class="modal-body">
           <form action="/add" method="POST">
             <!--Image-->
@@ -99,6 +98,7 @@
         <div class="modal-footer">
           
         </div>
+        
       </div>
     </div>
   </div>
@@ -119,17 +119,28 @@
             <h5 class="card-title">{{vehicle.name}}</h5>
             <p class="card-text">{{vehicle.quote}}</p>
 
-            <!-- Button trigger details modal -->
+            <!-- View Vehicle Button -->
             <a 
             class="btn btn-primary" 
             href="{{url_for('view_vehicle', id=vehicle.id)}}" 
             role="button"
             >View Details</a>
+            <!-- Edit Vehicle Button -->
+          <button
+          type="button"
+          class="btn"
+          data-bs-toggle="editmodal"
+          data-bs-target="#editModal"
+        >
+          Edit Details
+          </button>
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
+  
 {%endblock%}
+
 </body>
