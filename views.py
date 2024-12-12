@@ -24,6 +24,7 @@ def init_routes(app):
             name = request.form.get("Name"),
             quote = request.form.get("Quote"),
             description = request.form.get("Description"),
+            odometer = request.form.get("Odometer"),
             owner = request.form.get("Owner"),
             type = request.form.get("Type"),
             make = request.form.get("Make"),
@@ -61,6 +62,7 @@ def init_routes(app):
             vehicle.name = request.form.get("Name")
             vehicle.quote = request.form.get("Quote")
             vehicle.description = request.form.get("Description")
+            vehicle.odometer = request.form.get("Odometer"),
             vehicle.owner = request.form.get("Owner")
             vehicle.type = request.form.get("Type")
             vehicle.make = request.form.get("Make")
@@ -74,10 +76,12 @@ def init_routes(app):
             return redirect(url_for('index'))
 
 
-    @app.route('/delete', methods=['GET' 'POST'])
-    def delete_item():
+    @app.route('/delete', methods=['GET'])
+    def delete_vehicle():
         id = request.args.get('id')
         vehicle = Vehicle.query.get(id)
+        db.session.delete(vehicle)
+        db.session.commit()
 
         # This route should handle deleting an existing item identified by the given ID.
-        return render_template('index.html', message=f'Item deleted successfully')
+        return redirect(url_for('index'))

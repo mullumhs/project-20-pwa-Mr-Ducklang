@@ -9,6 +9,7 @@ class Vehicle(db.Model):
     name = db.Column(db.String(100), nullable=False)
     quote = db.Column(db.String(100), nullable = True)
     description = db.Column(db.Text)
+    odometer =  db.Column(db.String(100), nullable = True)
     owner = db.Column(db.String(100), nullable = True)
     type = db.Column(db.String(100), nullable=True)
     make = db.Column(db.String(100), nullable=True)
