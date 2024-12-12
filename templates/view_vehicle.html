@@ -1,23 +1,37 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}{% block content %}
 
-<img
-  src="{{vehicle.image}}"
-  class="img-fluid rounded img-thumbnail"
-  style="width: 800px"
-  alt="Picture of {{vehicle.name}}"
-/>
-<h1><br />{{vehicle.name}} Details</h1>
-<p>"{{vehicle.quote}}"</p>
-<br />
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="{{vehicle.image}}"
+        class="img-fluid rounded img-thumbnail"
+        style="width: 800px"
+        alt="Picture of {{vehicle.name}}"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h3 class="card-title text-center">{{vehicle.name}} Details</h3>
+        <h5 class="card-text text-center">"{{vehicle.quote}}"</h5>
+        <p class="card-text"><b>Owner: </b>{{vehicle.owner}}</p>
+        <p class="card-text"><b>Vehicle Type:</b> {{vehicle.type}}</p>
+        <p class="card-text"><b>Make: </b>{{vehicle.make}}</p>
+        <p class="card-text"><b>Model:</b> {{vehicle.model}}</p>
+        <p class="card-text"><b>Year: </b>{{vehicle.year}}</p>
+        <p class="card-text"><b>Features: </b>{{vehicle.features}}</p>
+        <p class="card-text">
+          <b> Issues: </b><br /><br />
+          <b>Current:</b>{{vehicle.currentissues}} <br />
+          <br /><b>Previous: </b>{{vehicle.previousissues}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <p>{{vehicle.description}}</p>
-<br />
-<p>Owner: {{vehicle.owner}}</p>
-<p>Vehicle Type: {{vehicle.type}}</p>
-<p>Make: {{vehicle.make}}</p>
-<p>Model: {{vehicle.model}}</p>
-<p>Year: {{vehicle.year}}</p>
-<p>Features: {{vehicle.features}}</p>
-<br />
+
 <p>
   Issues: <br />Current: {{vehicle.currentissues}} <br />
   Previous: {{vehicle.previousissues}}

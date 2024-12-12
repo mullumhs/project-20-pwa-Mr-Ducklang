@@ -44,15 +44,40 @@ def init_routes(app):
         id = request.args.get('id')
         vehicle = Vehicle.query.get(id)
         return render_template('view_vehicle.html', vehicle = vehicle)
+    
+    @app.route('/edit', methods=['GET', 'POST'])
+    def edit_vehicle():
+        id = request.args.get('id')
+        vehicle = Vehicle.query.get(id)
 
-    @app.route('/update', methods=['POST'])
-    def update_item():
-        # This route should handle updating an existing item identified by the given ID.
-        return render_template('index.html', message=f'Item updated successfully')
+        if request.method == 'GET':
+            return render_template('edit.html', vehicle = vehicle)
+    
+        if request.method == 'POST':
+            
+            id = request.form["id"]
+            vehicle = Vehicle.query.get(id)
+            vehicle.image = request.form.get("Image")
+            vehicle.name = request.form.get("Name")
+            vehicle.quote = request.form.get("Quote")
+            vehicle.description = request.form.get("Description")
+            vehicle.owner = request.form.get("Owner")
+            vehicle.type = request.form.get("Type")
+            vehicle.make = request.form.get("Make")
+            vehicle.model = request.form.get("Model")
+            vehicle.year = request.form.get("Year")
+            vehicle.features = request.form.get("Features")
+            vehicle.currentissues = request.form.get("CurrentIssues")
+            vehicle.previousissues = request.form.get("PreviousIssues")
+                
+            db.session.commit()
+            return redirect(url_for('index'))
 
 
-
-    @app.route('/delete', methods=['POST'])
+    @app.route('/delete', methods=['GET' 'POST'])
     def delete_item():
+        id = request.args.get('id')
+        vehicle = Vehicle.query.get(id)
+
         # This route should handle deleting an existing item identified by the given ID.
         return render_template('index.html', message=f'Item deleted successfully')
