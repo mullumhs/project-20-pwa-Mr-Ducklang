@@ -113,14 +113,14 @@
   <div class="container">
     <div class="row">
       {% for vehicle in vehicles %}
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 justify-content-center">
         <div class="card mb-4 custom-bg">
           <img
             src="{{vehicle.image}}"
             class="card-img-top"
             alt="Picture of {{vehicle.name}}"
-            width="500"
-            height="300"
+            width="300"
+            height="225"
           />
           <div class="card-body">
             <h5 class="card-title cardtext">{{vehicle.name}}</h5>

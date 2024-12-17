@@ -11,7 +11,11 @@ def init_routes(app):
 
     @app.route('/', methods=['GET'])
     def index():
-        vehicles = Vehicle.query.all()
+        if request.args.get('name') is not None:
+            name = request.args.get('name')
+            vehicles = Vehicle.query.filter(Vehicle.name.ilike(f'%{name}%')).all()
+        else:
+            vehicles = Vehicle.query.all()
         return render_template('index.html', vehicles=vehicles)
 
 
@@ -86,12 +90,12 @@ def init_routes(app):
         # This route should handle deleting an existing item identified by the given ID.
         return redirect(url_for('index'))
     
-    @app.route('/search', methods=['GET'])
+    @app.route('/search', methods=['POST'])
     def search_vehicle():
-        name = request.args.get('name')
+        name = request.form.get('name')
         vehicle = Vehicle.query.get(name)
         
-        return render_template('search.html', vehicle = vehicle)
+        return redirect(url_for('index', name = name))
     
         # This route should handle deleting an existing item identified by the given ID.
         
