@@ -36,7 +36,7 @@
             </div>
             <!--Quote-->
             <div class="mb-3">
-              <label for="message-text" class="col-form-label">Quote<br>e.g: "Good vehicle, does this and that"</label>
+              <label for="message-text" class="col-form-label">Quote<br>e.g: Good vehicle, does this and that</label>
               <textarea class="form-control" id="vehicle-quote" name="Quote"></textarea>
             </div>
             <!--Description-->
@@ -122,7 +122,8 @@
           />
           <div class="card-body">
             <h5 class="card-title">{{vehicle.name}}</h5>
-            <p class="card-text">{{vehicle.quote}}</p>
+            <p class="card-text">"{{vehicle.quote}}"</p>
+            <p class="card-text"><b>Owner/Driver: </b> {{vehicle.owner}}</p>
 
             <!-- View Vehicle Button -->
             <a 
