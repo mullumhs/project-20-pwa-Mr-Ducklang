@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}{% block content %}
+
+<div class="container">
+    <div class="row">
+      {% for vehicle in vehicles %}
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mb-4">
+          <img
+            src="{{vehicle.image}}"
+            class="card-img-top"
+            alt="Picture of {{vehicle.name}}"
+            width="500"
+            height="300"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{vehicle.name}}</h5>
+            <p class="card-text">"{{vehicle.quote}}"</p>
+            <p class="card-text"><b>Owner/Driver: </b> {{vehicle.owner}}</p>
+
+            <!-- View Vehicle Button -->
+            <a 
+            class="btn btn-primary" 
+            href="{{url_for('view_vehicle', id=vehicle.id)}}" 
+            role="button"
+            >View Details</a>
+            <!-- Edit Vehicle Button -->
+            <a 
+            class="btn btn-primary" 
+            href="{{url_for('edit_vehicle', id=vehicle.id)}}" 
+            role="button"
+            >Edit Details</a>
+            <!-- Delete Vehicle Button -->
+            <a 
+            class="btn btn-primary" 
+            href="{{url_for('delete_vehicle', id=vehicle.id)}}" 
+            role="button"
+            >Delete</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+{%endblock%}

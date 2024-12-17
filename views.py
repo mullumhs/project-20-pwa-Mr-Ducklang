@@ -85,3 +85,13 @@ def init_routes(app):
 
         # This route should handle deleting an existing item identified by the given ID.
         return redirect(url_for('index'))
+    
+    @app.route('/search', methods=['GET'])
+    def search_vehicle():
+        name = request.args.get('name')
+        vehicle = Vehicle.query.get(name)
+        
+        return render_template('search.html', vehicle = vehicle)
+    
+        # This route should handle deleting an existing item identified by the given ID.
+        
