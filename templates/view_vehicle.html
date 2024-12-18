@@ -1,19 +1,19 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}{% block content %}
 
-<div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img
-        src="{{vehicle.image}}"
-        class="img-fluid card-img-top"
-        style="width: 800px"
-        alt="Picture of {{vehicle.name}}"
-      />
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h3 class="card-title text-center">{{vehicle.name}} Details</h3>
-        <h5 class="card-text text-center">"{{vehicle.quote}}"</h5>
+<div class="card mb-3 text-center justify-content-center">
+    
+      <div class="container background padding">
+        <h3 class="text-center justify-content-center padding"><b>{{vehicle.name}} Details</b></h3>
+          <div class="container">
+            <img
+              src="{{vehicle.image}}"
+              class="card-img-top text-center justify-content-center smallpadding"
+              style="width: 800px"
+              alt="Picture of {{vehicle.name}}"
+            />
+          </div>
+          <div class="container">
+        <h5 class="card-text text-center smallpadding">"{{vehicle.quote}}"</h5>
         <p class="card-text text-center"><b></b>{{vehicle.description}}</p>
         <p class="card-text"><b>Owner/Driver: </b> {{vehicle.owner}}</p>
         <p class="card-text"><b>Odometer: </b>{{vehicle.odometer}}</p>
@@ -25,6 +25,7 @@
         <p class="card-text">
           <b>Current Issues: </b> {{vehicle.currentissues}} <br />
           <br /><b>Previous Issues: </b>{{vehicle.previousissues}}
+          <br>
         </p>
       </div>
     </div>
